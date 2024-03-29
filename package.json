@@ -12,6 +12,7 @@
         "format": "prettier --write ."
     },
     "dependencies": {
+        "@vueuse/core": "^8.2.6",
         "vue": "^3.4.21"
     },
     "devDependencies": {
