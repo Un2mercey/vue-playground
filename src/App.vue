@@ -1,7 +1,17 @@
 <template>
-    <HelloWorld msg="Hello World" />
+    <MainLayout>
+        <template #nav>
+            <NavigationDrawer />
+        </template>
+        <router-view #="{ Component }">
+            <transition name="fade">
+                <Component :is="Component" />
+            </transition>
+        </router-view>
+    </MainLayout>
 </template>
 
 <script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue';
+import MainLayout from '@/components/layout/MainLayout.vue';
+import NavigationDrawer from '@/components/layout/NavigationDrawer.vue';
 </script>
