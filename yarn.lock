@@ -2059,6 +2059,11 @@ vue-eslint-parser@^9.3.1, vue-eslint-parser@^9.4.2:
     lodash "^4.17.21"
     semver "^7.3.6"
 
+vue-inline-svg@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/vue-inline-svg/-/vue-inline-svg-3.1.2.tgz#bc83ad67aacfda6c7c76364d89775a06e8270136"
+  integrity sha512-K01sLANBnjosObee4JrBu/igXpYIFhQfy4EcEyVWxEWf6nmrxp7Isz6pmeRCsWx6XGrGWfrQH3uNwt4nOmrFdA==
+
 vue-router@4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.3.0.tgz#d5913f27bf68a0a178ee798c3c88be471811a235"

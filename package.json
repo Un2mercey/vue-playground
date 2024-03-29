@@ -14,6 +14,7 @@
     "dependencies": {
         "@vueuse/core": "^8.2.6",
         "vue": "^3.4.21",
+        "vue-inline-svg": "^3.1.2",
         "vue-router": "4.3.0"
     },
     "devDependencies": {
