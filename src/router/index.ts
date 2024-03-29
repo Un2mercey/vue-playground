@@ -1,5 +1,5 @@
 import { RouteComponent, RouteRecordRaw, Router, createRouter, createWebHistory } from 'vue-router';
-import { RouteNames, RouteUrls } from './types.ts';
+import { RouteNames, RouteUrls } from '@/@enums';
 
 type RouteView = Promise<RouteComponent>;
 
