@@ -15,11 +15,7 @@ const { align, justify } = defineProps<{
     justify?: Justifies;
 }>();
 
-const classList = computed(() => [
-    'grid-row',
-    align && `align-${align}`,
-    justify && `justify-${justify}`
-]);
+const classList = computed(() => ['grid-row', align && `align-${align}`, justify && `justify-${justify}`]);
 </script>
 
 <style scoped lang="scss">
