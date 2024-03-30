@@ -11,7 +11,7 @@ export const useSVGStore = defineStore(StoreIds.SVG, () => {
         if (svgList.get(name)) return;
 
         const response = await fetch(`${BASE_ICON_PATH}${name}.svg`);
-        let data = await response.text();
+        const data = await response.text();
         svgList.set(name, data);
     }
 
