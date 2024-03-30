@@ -5,7 +5,7 @@
         :height="height"
         :class="classList"
         @mouseover="isHovered = true"
-        @mouseout="isHovered = false"
+        @mouseleave="isHovered = false"
     >
         <use
             :href="`#icon_${name}`"

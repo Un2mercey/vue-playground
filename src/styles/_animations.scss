@@ -1,0 +1,35 @@
+@keyframes fillWidth {
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes jiggling {
+    0% {
+        transform: rotate(-1deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(1.5deg);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes wobbling {
+    0% {
+        transform: rotate(1deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(-1.5deg);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes rotation-360 {
+    to {
+        transform: rotate(1turn);
+    }
+}

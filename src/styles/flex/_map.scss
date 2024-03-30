@@ -10,6 +10,11 @@ $wrap: (
     'wrap': wrap,
 );
 
+$grow: (
+    '1': 1,
+    '0': 0,
+);
+
 $align-content: (
     'center': center,
     'start': flex-start,
@@ -59,10 +64,37 @@ $gap: (
     '12': 3rem,
 );
 
+$block: (
+    '1': 1,
+    '1-0': 1 0,
+    '1-1': 1 1,
+    '1-1-100': 1 1 percentage(1),
+    '0-0': 0 0,
+    '0-0-100': 0 0 percentage(1),
+    '0-1': 0 1,
+    '0-1-100': 0 1 percentage(1),
+);
+
 @mixin flex-direction {
     @each $key, $value in $direction {
         .flex-#{$key} {
             flex-direction: $value;
+        }
+    }
+}
+
+@mixin flex-wrap {
+    @each $key, $value in $wrap {
+        .flex-#{$key} {
+            flex-wrap: $value;
+        }
+    }
+}
+
+@mixin flex-grow {
+    @each $key, $value in $grow {
+        .flex-grow-#{$key} {
+            flex-grow: $value !important;
         }
     }
 }
@@ -103,6 +135,14 @@ $gap: (
     @each $key, $value in $gap {
         .gap-#{$key} {
             gap: $value;
+        }
+    }
+}
+
+@mixin flex-block {
+    @each $key, $value in $block {
+        .flex-#{$key} {
+            flex: $value !important;
         }
     }
 }

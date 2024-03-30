@@ -16,6 +16,7 @@
                 </div>
             </section>
         </div>
+        <ToastList />
         <SVGContainer />
     </main>
 </template>
@@ -26,6 +27,7 @@ import { useRoute } from 'vue-router';
 import SVGContainer from '@/components/icons/SVGContainer.vue';
 import GridCol from '@/components/layout/grid/GridCol.vue';
 import GridRow from '@/components/layout/grid/GridRow.vue';
+import ToastList from '@/components/toast/ToastList.vue';
 
 const route = useRoute();
 const title = computed(() => route.meta.title || 'Playground');
