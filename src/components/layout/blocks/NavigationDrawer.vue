@@ -26,6 +26,7 @@
                         <div
                             class="nav-list__item"
                             :class="{ '--active': isActive }"
+                            @click="$router.push({ name })"
                         >
                             <SVGIcon
                                 :name="icon"
@@ -71,10 +72,19 @@ const items = computed(() => [
         icon: `${RouteNames.HOME}`.toLowerCase(),
         isActive: routeName.value === RouteNames.HOME,
     },
+    {
+        name: RouteNames.EVENT_LOOP,
+        text: 'Event Loop',
+        icon: 'refresh',
+        isActive: routeName.value === RouteNames.EVENT_LOOP,
+    },
 ]);
+
+const hoverColor = computed(() => (modelValue ? '#393B40FF' : '#2C2E35FF'));
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/colors';
 @import '@/styles/typography';
 @import '@/styles/utilities';
 
@@ -132,6 +142,8 @@ const items = computed(() => [
                 flex-wrap: nowrap;
                 position: relative;
                 cursor: default;
+                border-radius: 8px;
+                transition: 0.3s;
 
                 svg {
                     display: block;
@@ -145,6 +157,10 @@ const items = computed(() => [
 
                 &:not(.--active) {
                     @extend .cursor-pointer;
+
+                    &:hover {
+                        background: v-bind(hoverColor);
+                    }
                 }
 
                 &.--active {

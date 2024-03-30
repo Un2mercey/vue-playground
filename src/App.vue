@@ -1,7 +1,10 @@
 <template>
     <ApplicationLayout #="{ style }">
         <router-view #="{ Component }">
-            <transition name="fade">
+            <transition
+                name="fade"
+                mode="out-in"
+            >
                 <Component
                     :is="Component"
                     v-bind="{ style }"
