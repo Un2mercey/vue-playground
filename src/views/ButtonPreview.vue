@@ -26,7 +26,7 @@
                                         :type="type"
                                         :size="size"
                                         :shape="shape"
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         <template #prepend>
                                             <SVGIcon name="chevron-left" />
@@ -41,7 +41,7 @@
                                         :size="size"
                                         :shape="shape"
                                         disabled
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         <template #prepend>
                                             <SVGIcon name="chevron-left" />
@@ -57,7 +57,7 @@
                                         :type="type"
                                         :size="size"
                                         :shape="shape"
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         <template #prepend>
                                             <SVGIcon name="chevron-left" />
@@ -69,7 +69,7 @@
                                         :size="size"
                                         :shape="shape"
                                         disabled
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         <template #prepend>
                                             <SVGIcon name="chevron-left" />
@@ -82,7 +82,7 @@
                                         :type="type"
                                         :size="size"
                                         :shape="shape"
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         Button
                                         <template #append>
@@ -94,7 +94,7 @@
                                         :size="size"
                                         :shape="shape"
                                         disabled
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         Button
                                         <template #append>
@@ -107,7 +107,7 @@
                                         :type="type"
                                         :size="size"
                                         :shape="shape"
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         Button
                                     </AppButton>
@@ -116,7 +116,7 @@
                                         :size="size"
                                         :shape="shape"
                                         disabled
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         Button
                                     </AppButton>
@@ -126,7 +126,7 @@
                                         :type="type"
                                         :size="size"
                                         :shape="shape"
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         <template #prepend>
                                             <SVGIcon name="chevron-left" />
@@ -137,7 +137,7 @@
                                         :size="size"
                                         :shape="shape"
                                         disabled
-                                        @click="clickMap.get(type)()"
+                                        @click="clickMap.get(type)!()"
                                     >
                                         <template #prepend>
                                             <SVGIcon name="chevron-left" />
