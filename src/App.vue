@@ -12,5 +12,8 @@
 </template>
 
 <script setup lang="ts">
+import { useDocumentTitle } from '@/composable';
 import ApplicationLayout from '@/components/layout/functional/ApplicationLayout.vue';
+
+useDocumentTitle();
 </script>

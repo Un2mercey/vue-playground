@@ -8,7 +8,7 @@
         "^@/@enums",
         "^@/@interfaces",
         "^@/@types",
-        "^@/modules",
+        "^@/composable",
         "^@/stores",
         "^@/router/(.*)$",
         "^@/styles/(.*)$",
