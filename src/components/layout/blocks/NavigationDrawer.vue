@@ -23,16 +23,17 @@
                     :key="name"
                 >
                     <grid-col>
-                        <div class="nav-list__item">
+                        <div
+                            class="nav-list__item"
+                            :class="{ '--active': isActive }"
+                        >
                             <SVGIcon
                                 :name="icon"
                                 :width="Sizes.XL"
                                 :height="Sizes.XL"
                                 :fill="isActive && '#42d392'"
                             />
-                            <span :class="{ 'text-primary': isActive }">
-                                {{ text }}
-                            </span>
+                            <span>{{ text }}</span>
                         </div>
                     </grid-col>
                 </grid-row>
@@ -130,6 +131,7 @@ const items = computed(() => [
                 white-space: nowrap;
                 flex-wrap: nowrap;
                 position: relative;
+                cursor: default;
 
                 svg {
                     display: block;
@@ -139,6 +141,16 @@ const items = computed(() => [
                 span {
                     margin-left: calc(24px + 0.75rem);
                     @extend .regular-subtitle-1;
+                }
+
+                &:not(.--active) {
+                    @extend .cursor-pointer;
+                }
+
+                &.--active {
+                    span {
+                        @extend .text-primary;
+                    }
                 }
             }
         }

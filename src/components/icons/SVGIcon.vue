@@ -4,6 +4,8 @@
         :width="width"
         :height="height"
         :class="classList"
+        @mouseover="isHovered = true"
+        @mouseout="isHovered = false"
     >
         <use
             :href="`#icon_${name}`"
@@ -14,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { Sizes } from '@/@enums';
 import { useSVGStore } from '@/stores';
 
@@ -25,6 +27,7 @@ const {
     viewBox: initialBox,
     rotation = 0,
     fill,
+    hoverFill,
 } = defineProps<{
     name: string;
     width?: Sizes;
@@ -32,6 +35,7 @@ const {
     viewBox?: string;
     rotation?: number;
     fill?: string | boolean;
+    hoverFill?: string | boolean;
 }>();
 
 const sizesMap = new Map<Sizes, number>()
@@ -45,11 +49,17 @@ const sizesMap = new Map<Sizes, number>()
 const { addSVG } = useSVGStore();
 addSVG(name);
 
+const isHovered = ref(false);
 const width = computed(() => sizesMap.get(initialWidth));
 const height = computed(() => sizesMap.get(initialHeight));
 const viewBox = computed(() => initialBox || `0 0 ${width.value} ${height.value}`);
-const classList = computed(() => ['svg-icon', { rotate: rotation, filled: !!fill }]);
+const classList = computed(() => ['svg-icon', { rotate: rotation, filled: fill || !!hoverFill }]);
 const getRotation = computed(() => (rotation ? `${rotation}deg` : 'none'));
+const color = computed(() => {
+    if (hoverFill) return isHovered.value ? hoverFill : fill;
+    else if (fill) return fill;
+    else return 'currentColor';
+});
 </script>
 
 <style scoped lang="scss">
@@ -59,7 +69,7 @@ const getRotation = computed(() => (rotation ? `${rotation}deg` : 'none'));
 }
 
 .svg-icon.filled .svg-icon__use {
-    color: v-bind(fill);
+    color: v-bind(color);
 }
 
 .rotate {
