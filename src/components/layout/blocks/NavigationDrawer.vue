@@ -30,17 +30,9 @@
                                 :height="Sizes.XL"
                                 :fill="isActive && '#42d392'"
                             />
-                            <transition
-                                name="fade"
-                                mode="out-in"
-                            >
-                                <span
-                                    v-show="modelValue"
-                                    :class="{ 'text-primary': isActive }"
-                                >
-                                    {{ text }}
-                                </span>
-                            </transition>
+                            <span :class="{ 'text-primary': isActive }">
+                                {{ text }}
+                            </span>
                         </div>
                     </grid-col>
                 </grid-row>
