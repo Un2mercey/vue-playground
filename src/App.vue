@@ -1,17 +1,16 @@
 <template>
-    <MainLayout>
-        <template #nav>
-            <NavigationDrawer />
-        </template>
+    <ApplicationLayout #="{ style }">
         <router-view #="{ Component }">
             <transition name="fade">
-                <Component :is="Component" />
+                <Component
+                    :is="Component"
+                    v-bind="{ style }"
+                />
             </transition>
         </router-view>
-    </MainLayout>
+    </ApplicationLayout>
 </template>
 
 <script setup lang="ts">
-import MainLayout from '@/components/layout/MainLayout.vue';
-import NavigationDrawer from '@/components/layout/NavigationDrawer.vue';
+import ApplicationLayout from '@/components/layout/functional/ApplicationLayout.vue';
 </script>

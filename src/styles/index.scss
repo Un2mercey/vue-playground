@@ -1,3 +1,5 @@
+@import 'variables';
+
 html {
     box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
@@ -7,13 +9,11 @@ html {
     font-size: 16px;
     line-height: 16px;
     font-family: 'Poppins', sans-serif;
+    background: $app-background;
+    color: $app-color;
 
     body {
         margin: 0;
         padding: 0;
-
-        #app {
-            display: flex;
-        }
     }
 }

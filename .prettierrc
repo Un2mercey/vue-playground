@@ -4,7 +4,18 @@
     "singleQuote": true,
     "singleAttributePerLine": true,
     "trailingComma": "all",
-    "importOrder": ["^@/components", "^[./]"],
+    "importOrder": [
+        "^@/@enums",
+        "^@/@interfaces",
+        "^@/@types",
+        "^@/modules",
+        "^@/stores",
+        "^@/router/(.*)$",
+        "^@/styles/(.*)$",
+        "^@/views/(.vue*)$",
+        "^@/components",
+        "^[./]"
+    ],
     "importOrderSeparation": false,
     "importOrderSortSpecifiers": true
 }

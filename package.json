@@ -14,8 +14,8 @@
     "dependencies": {
         "@vueuse/core": "^8.2.6",
         "vue": "^3.4.21",
-        "vue-inline-svg": "^3.1.2",
-        "vue-router": "4.3.0"
+        "vue-router": "4.3.0",
+        "pinia": "^2.1.7"
     },
     "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^4.3.0",
