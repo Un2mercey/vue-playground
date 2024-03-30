@@ -7,15 +7,19 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-type Aligns = 'start' | 'center' | 'end';
-type Justifies = 'start' | 'center' | 'end' | 'space-around' | 'space-between';
+type Aligns = 'start' | 'center' | 'end' | 'baseline' | 'stretch';
+type Justifies = 'start' | 'center' | 'end' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly';
 
 const { align, justify } = defineProps<{
     align?: Aligns;
     justify?: Justifies;
 }>();
 
-const classList = computed(() => ['grid-row', align && `align-${align}`, justify && `justify-${justify}`]);
+const classList = computed(() => [
+    'grid-row',
+    align && `align-${align}`,
+    justify && `justify-${justify}`
+]);
 </script>
 
 <style scoped lang="scss">

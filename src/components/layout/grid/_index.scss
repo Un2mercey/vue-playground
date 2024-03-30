@@ -10,6 +10,14 @@
     align-items: flex-end !important;
 }
 
+.align-baseline {
+    align-items: baseline !important;
+}
+
+.align-stretch {
+    align-items: stretch !important;
+}
+
 .align-self-start {
     align-self: flex-start !important;
 }
@@ -34,12 +42,20 @@
     justify-content: flex-end !important;
 }
 
-.justify-space-around {
-    justify-content: space-around !important;
+.justify-stretch {
+    justify-content: stretch !important;
 }
 
 .justify-space-between {
     justify-content: space-between !important;
+}
+
+.justify-space-around {
+    justify-content: space-around !important;
+}
+
+.justify-space-evenly {
+    justify-content: space-evenly !important;
 }
 
 @mixin grid-col-x {
