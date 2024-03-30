@@ -31,7 +31,7 @@ const {
     height?: Sizes;
     viewBox?: string;
     rotation?: number;
-    fill?: string;
+    fill?: string | boolean;
 }>();
 
 const sizesMap = new Map<Sizes, number>()
