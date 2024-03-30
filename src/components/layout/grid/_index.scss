@@ -61,8 +61,8 @@
 @mixin grid-col-x {
     @for $i from 1 through 12 {
         .grid-col-#{$i} {
-            flex: 0 0 percentage($i / 12);
-            max-width: percentage($i / 12);
+            flex: 0 0 percentage(calc($i / 12));
+            max-width: percentage(calc($i / 12));
         }
     }
 }
@@ -70,7 +70,7 @@
 @mixin offset-x {
     @for $i from 1 through 12 {
         .offset-#{$i} {
-            margin-inline-start: percentage($i / 12);
+            margin-inline-start: percentage(calc($i / 12));
         }
     }
 }
