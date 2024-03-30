@@ -1,0 +1,58 @@
+@import 'shapes';
+@import 'sizes';
+@import 'types';
+
+.btn {
+    appearance: auto;
+    font-style: unset;
+    font-variant-ligatures: unset;
+    font-variant-caps: unset;
+    font-variant-numeric: unset;
+    font-variant-east-asian: unset;
+    font-variant-alternates: unset;
+    font-variant-position: unset;
+    font-weight: unset;
+    font-stretch: unset;
+    font-size: unset;
+    font-family: unset;
+    font-optical-sizing: unset;
+    font-kerning: unset;
+    font-feature-settings: unset;
+    font-variation-settings: unset;
+    text-rendering: auto;
+    color: unset;
+    letter-spacing: unset;
+    word-spacing: unset;
+    line-height: unset;
+    text-transform: unset;
+    text-indent: 0;
+    text-shadow: unset;
+    text-align: center;
+    cursor: pointer;
+    background-color: unset;
+    margin: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    border: unset;
+
+    align-items: center;
+    display: inline-grid;
+    grid-template-areas: 'prepend content append';
+    grid-template-columns: max-content auto max-content;
+    border: 1px solid transparent;
+    transition: 0.3s;
+
+    @include button-shapes;
+    @include button-sizes;
+    @include button-types;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &__content {
+        grid-area: content;
+        justify-content: center;
+        white-space: nowrap;
+    }
+}

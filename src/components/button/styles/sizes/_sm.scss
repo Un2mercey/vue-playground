@@ -1,0 +1,33 @@
+@import '@/styles/typography';
+@import '@/styles/flex';
+
+@mixin size-sm {
+    &.--size-sm {
+        @extend .regular-body;
+        line-height: 120%;
+        height: 2rem;
+        padding: 0 1rem;
+
+        .btn__content {
+            .grid-row {
+                @extend .gap-3;
+
+                .grid-col {
+                    :deep(.svg-icon) {
+                        height: 1rem;
+                        width: 1rem;
+                    }
+                }
+            }
+        }
+
+        &.--icon {
+            width: 2rem;
+            padding: 0;
+
+            .grid-col {
+                @extend .justify-center;
+            }
+        }
+    }
+}

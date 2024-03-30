@@ -81,7 +81,7 @@ onMounted(hideAfter);
     padding: 13px 16px 13px 20px;
     line-height: 1;
     border-radius: 19px;
-    background: $app-background_secondary;
+    background: $app-background-secondary;
     color: $app-color;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
     transition: all 0.2s ease;
@@ -94,7 +94,7 @@ onMounted(hideAfter);
         bottom: 0;
         height: 100%;
         width: 0;
-        background-color: #5b5c62;
+        background-color: $app-background-light;
         animation: fillWidth v-bind(animationDuration) ease-out forwards;
     }
 

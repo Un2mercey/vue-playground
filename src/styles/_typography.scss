@@ -1,5 +1,7 @@
+@import 'colors/variables';
+
 .text-primary {
-    background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+    background: $background-primary;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -15,6 +17,27 @@ h1 {
 
 .regular-subtitle-1 {
     font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.regular-subtitle-2 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.regular-body {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.regular-caption-1 {
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;

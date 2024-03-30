@@ -1,0 +1,16 @@
+@import '@/styles/colors';
+
+@mixin type-clear {
+    &.--type-clear {
+        background: transparent;
+        color: $app-color;
+
+        &:not(:disabled):hover {
+            background: $app-background-light;
+        }
+
+        &:disabled {
+            color: $app-background-light;
+        }
+    }
+}

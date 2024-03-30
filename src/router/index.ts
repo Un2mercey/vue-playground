@@ -4,6 +4,7 @@ import { RouteNames, RouteUrls } from '@/@enums';
 type RouteView = Promise<RouteComponent>;
 
 const HomePage: () => RouteView = () => import('@/views/HomePage.vue');
+const ButtonPreview: () => RouteView = () => import('@/views/ButtonPreview.vue');
 const EventLoop: () => RouteView = () => import('@/views/EventLoop.vue');
 
 const routes: RouteRecordRaw[] = [
@@ -11,6 +12,12 @@ const routes: RouteRecordRaw[] = [
         path: RouteUrls.HOME,
         name: RouteNames.HOME,
         component: HomePage,
+    },
+    {
+        path: RouteUrls.BUTTON_PREVIEW,
+        name: RouteNames.BUTTON_PREVIEW,
+        component: ButtonPreview,
+        meta: { title: 'Button Preview' },
     },
     {
         path: RouteUrls.EVENT_LOOP,

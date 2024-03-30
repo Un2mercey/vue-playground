@@ -1,0 +1,17 @@
+@import '@/styles/colors';
+
+@mixin type-accent {
+    &.--type-accent {
+        background: $error;
+        color: $app-color;
+
+        &:hover {
+            background: $error-hover;
+        }
+
+        &:disabled {
+            background: rgba($error, 0.1);
+            color: $app-background-light;
+        }
+    }
+}

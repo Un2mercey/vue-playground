@@ -1,0 +1,32 @@
+@import '@/styles/typography';
+@import '@/styles/flex';
+
+@mixin size-lg {
+    &.--size-lg {
+        @extend .regular-subtitle-2;
+        height: 3rem;
+        padding: 0 1.5rem;
+
+        .btn__content {
+            .grid-row {
+                @extend .gap-3;
+
+                .grid-col {
+                    :deep(.svg-icon) {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+
+        &.--icon {
+            width: 3rem;
+            padding: 0;
+
+            .grid-col {
+                @extend .justify-center;
+            }
+        }
+    }
+}

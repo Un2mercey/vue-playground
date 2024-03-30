@@ -86,7 +86,7 @@ $block: (
 @mixin flex-wrap {
     @each $key, $value in $wrap {
         .flex-#{$key} {
-            flex-wrap: $value;
+            flex-wrap: $value !important;
         }
     }
 }

@@ -1,0 +1,17 @@
+@import '@/styles/colors';
+
+@mixin type-secondary {
+    &.--type-secondary {
+        background: transparent;
+        color: $app-color;
+        border-color: $app-background-light;
+
+        &:not(:disabled):hover {
+            border-color: $app-background-lighten;
+        }
+
+        &:disabled {
+            color: $app-background-light;
+        }
+    }
+}

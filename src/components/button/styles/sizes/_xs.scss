@@ -1,0 +1,32 @@
+@import '@/styles/typography';
+@import '@/styles/flex';
+
+@mixin size-xs {
+    &.--size-xs {
+        @extend .regular-caption-1;
+        height: 1.5rem;
+        padding: 0 1rem;
+
+        .btn__content {
+            .grid-row {
+                @extend .gap-2;
+
+                .grid-col {
+                    :deep(.svg-icon) {
+                        height: 0.75rem;
+                        width: 0.75rem;
+                    }
+                }
+            }
+        }
+
+        &.--icon {
+            width: 1.5rem;
+            padding: 0;
+
+            .grid-col {
+                @extend .justify-center;
+            }
+        }
+    }
+}

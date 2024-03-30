@@ -1,3 +1,4 @@
+export * from './button';
 export * from './sizes';
 export * from './toast';
 export * from '@/router/types';

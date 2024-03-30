@@ -73,6 +73,12 @@ const items = computed(() => [
         isActive: routeName.value === RouteNames.HOME,
     },
     {
+        name: RouteNames.BUTTON_PREVIEW,
+        text: 'Button Preview',
+        icon: 'button',
+        isActive: routeName.value === RouteNames.BUTTON_PREVIEW,
+    },
+    {
         name: RouteNames.EVENT_LOOP,
         text: 'Event Loop',
         icon: 'refresh',
