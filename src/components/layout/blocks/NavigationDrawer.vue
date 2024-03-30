@@ -10,20 +10,52 @@
                     name="chevron-right"
                     :width="Sizes.XXL"
                     :height="Sizes.XXL"
+                    :fill="modelValue && '#647eff'"
                     :rotation="modelValue ? 180 : 0"
                 />
             </div>
             <div
                 class="nav-list"
                 role="listbox"
-            ></div>
+            >
+                <grid-row
+                    v-for="{ name, text, icon, isActive } in items"
+                    :key="name"
+                >
+                    <grid-col>
+                        <div class="nav-list__item">
+                            <SVGIcon
+                                :name="icon"
+                                :width="Sizes.XL"
+                                :height="Sizes.XL"
+                                :fill="isActive && '#42d392'"
+                            />
+                            <transition
+                                name="fade"
+                                mode="out-in"
+                            >
+                                <span
+                                    v-show="modelValue"
+                                    :class="{ 'text-primary': isActive }"
+                                >
+                                    {{ text }}
+                                </span>
+                            </transition>
+                        </div>
+                    </grid-col>
+                </grid-row>
+            </div>
         </div>
     </nav>
 </template>
 
 <script setup lang="ts">
-import { Sizes } from '@/@enums';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { RouteNames, Sizes } from '@/@enums';
 import SVGIcon from '@/components/icons/SVGIcon.vue';
+import GridCol from '@/components/layout/grid/GridCol.vue';
+import GridRow from '@/components/layout/grid/GridRow.vue';
 
 enum Emits {
     UPDATE_MODEL_VALUE = 'update:modelValue',
@@ -36,9 +68,21 @@ const { modelValue } = defineProps<{
 const emit = defineEmits<{
     (e: Emits.UPDATE_MODEL_VALUE, value: typeof modelValue): void;
 }>();
+
+const route = useRoute();
+const routeName = computed(() => String(route.name));
+const items = computed(() => [
+    {
+        name: RouteNames.HOME,
+        text: 'Playground',
+        icon: `${RouteNames.HOME}`.toLowerCase(),
+        isActive: routeName.value === RouteNames.HOME,
+    },
+]);
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/typography';
 @import '@/styles/utilities';
 
 .navigation-drawer {
@@ -84,6 +128,27 @@ const emit = defineEmits<{
             height: 100%;
             overflow: hidden;
             position: relative;
+
+            &__item {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem;
+                height: 24px;
+                overflow: hidden;
+                white-space: nowrap;
+                flex-wrap: nowrap;
+                position: relative;
+
+                svg {
+                    display: block;
+                    position: fixed;
+                }
+
+                span {
+                    margin-left: calc(24px + 0.75rem);
+                    @extend .regular-subtitle-1;
+                }
+            }
         }
     }
 }
