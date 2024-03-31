@@ -10,140 +10,48 @@
                         v-for="size in sizes"
                         :key="size"
                     >
-                        <template
+                        <grid-row
                             v-for="shape in Object.values(ButtonShapes)"
                             :key="shape"
+                            align="stretch"
+                            justify="space-around"
+                            class="gap-4 flex-nowrap"
                         >
-                            <grid-row
-                                align="stretch"
-                                justify="space-around"
-                                class="gap-4 flex-nowrap"
+                            <grid-col
+                                v-for="col in 5"
+                                :key="col"
+                                class="d-flex gap-4 flex-grow-0"
                             >
-                                <grid-col class="d-flex gap-4 flex-grow-0">
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        @click="clickMap.get(type)!()"
+                                <AppButton
+                                    v-for="btn in 2"
+                                    :key="btn"
+                                    :type="type"
+                                    :size="size"
+                                    :shape="shape"
+                                    :disabled="btn === 2"
+                                    @click="clickMap.get(type)!()"
+                                >
+                                    <template
+                                        v-if="[1, 2, 5].includes(col)"
+                                        #prepend
                                     >
-                                        <template #prepend>
-                                            <SVGIcon name="chevron-left" />
-                                        </template>
-                                        Button
-                                        <template #append>
-                                            <SVGIcon name="chevron-right" />
-                                        </template>
-                                    </AppButton>
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        disabled
-                                        @click="clickMap.get(type)!()"
-                                    >
-                                        <template #prepend>
-                                            <SVGIcon name="chevron-left" />
-                                        </template>
-                                        Button
-                                        <template #append>
-                                            <SVGIcon name="chevron-right" />
-                                        </template>
-                                    </AppButton>
-                                </grid-col>
-                                <grid-col class="d-flex gap-4 flex-grow-0">
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        @click="clickMap.get(type)!()"
-                                    >
-                                        <template #prepend>
-                                            <SVGIcon name="chevron-left" />
-                                        </template>
-                                        Button
-                                    </AppButton>
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        disabled
-                                        @click="clickMap.get(type)!()"
-                                    >
-                                        <template #prepend>
-                                            <SVGIcon name="chevron-left" />
-                                        </template>
-                                        Button
-                                    </AppButton>
-                                </grid-col>
-                                <grid-col class="d-flex gap-4 flex-grow-0">
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        @click="clickMap.get(type)!()"
+                                        <SVGIcon name="chevron-left" />
+                                    </template>
+                                    <template
+                                        v-if="col !== 5"
+                                        #default
                                     >
                                         Button
-                                        <template #append>
-                                            <SVGIcon name="chevron-right" />
-                                        </template>
-                                    </AppButton>
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        disabled
-                                        @click="clickMap.get(type)!()"
+                                    </template>
+                                    <template
+                                        v-if="[1, 3].includes(col)"
+                                        #append
                                     >
-                                        Button
-                                        <template #append>
-                                            <SVGIcon name="chevron-right" />
-                                        </template>
-                                    </AppButton>
-                                </grid-col>
-                                <grid-col class="d-flex gap-4 flex-grow-0">
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        @click="clickMap.get(type)!()"
-                                    >
-                                        Button
-                                    </AppButton>
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        disabled
-                                        @click="clickMap.get(type)!()"
-                                    >
-                                        Button
-                                    </AppButton>
-                                </grid-col>
-                                <grid-col class="d-flex gap-4 flex-grow-0">
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        @click="clickMap.get(type)!()"
-                                    >
-                                        <template #prepend>
-                                            <SVGIcon name="chevron-left" />
-                                        </template>
-                                    </AppButton>
-                                    <AppButton
-                                        :type="type"
-                                        :size="size"
-                                        :shape="shape"
-                                        disabled
-                                        @click="clickMap.get(type)!()"
-                                    >
-                                        <template #prepend>
-                                            <SVGIcon name="chevron-left" />
-                                        </template>
-                                    </AppButton>
-                                </grid-col>
-                            </grid-row>
-                        </template>
+                                        <SVGIcon name="chevron-right" />
+                                    </template>
+                                </AppButton>
+                            </grid-col>
+                        </grid-row>
                         <grid-spacer />
                     </template>
                     <grid-spacer />
