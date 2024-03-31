@@ -1,0 +1,5 @@
+@mixin shape-brick {
+    &.--shape-brick {
+        border-radius: 0;
+    }
+}

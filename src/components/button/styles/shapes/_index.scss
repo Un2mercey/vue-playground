@@ -1,0 +1,9 @@
+@import 'default';
+@import 'round';
+@import 'brick';
+
+@mixin button-shapes {
+    @include shape-default;
+    @include shape-round;
+    @include shape-brick;
+}

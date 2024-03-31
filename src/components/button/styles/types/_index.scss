@@ -1,0 +1,13 @@
+@import 'accent';
+@import 'clear';
+@import 'ghost';
+@import 'primary';
+@import 'secondary';
+
+@mixin button-types {
+    @include type-accent;
+    @include type-clear;
+    @include type-ghost;
+    @include type-primary;
+    @include type-secondary;
+}

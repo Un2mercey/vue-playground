@@ -1,0 +1,76 @@
+.align-start {
+    align-items: flex-start !important;
+}
+
+.align-center {
+    align-items: center !important;
+}
+
+.align-end {
+    align-items: flex-end !important;
+}
+
+.align-baseline {
+    align-items: baseline !important;
+}
+
+.align-stretch {
+    align-items: stretch !important;
+}
+
+.align-self-start {
+    align-self: flex-start !important;
+}
+
+.align-self-center {
+    align-self: center !important;
+}
+
+.align-self-end {
+    align-self: flex-end !important;
+}
+
+.justify-start {
+    justify-content: flex-start !important;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
+.justify-end {
+    justify-content: flex-end !important;
+}
+
+.justify-stretch {
+    justify-content: stretch !important;
+}
+
+.justify-space-between {
+    justify-content: space-between !important;
+}
+
+.justify-space-around {
+    justify-content: space-around !important;
+}
+
+.justify-space-evenly {
+    justify-content: space-evenly !important;
+}
+
+@mixin grid-col-x {
+    @for $i from 1 through 12 {
+        .grid-col-#{$i} {
+            flex: 0 0 percentage(calc($i / 12));
+            max-width: percentage(calc($i / 12));
+        }
+    }
+}
+
+@mixin offset-x {
+    @for $i from 1 through 12 {
+        .offset-#{$i} {
+            margin-inline-start: percentage(calc($i / 12));
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
+    "tabWidth": 4,
+    "singleQuote": true,
+    "singleAttributePerLine": true,
+    "trailingComma": "all",
+    "importOrder": [
+        "^@/@enums",
+        "^@/@interfaces",
+        "^@/@types",
+        "^@/composable",
+        "^@/stores",
+        "^@/router/(.*)$",
+        "^@/styles/(.*)$",
+        "^@/views/(.vue*)$",
+        "^@/components",
+        "^[./]"
+    ],
+    "importOrderSeparation": false,
+    "importOrderSortSpecifiers": true
+}

@@ -1,0 +1,16 @@
+@import '@/styles/colors';
+
+@mixin type-ghost {
+    &.--type-ghost {
+        background: $app-background-light;
+        color: $app-color;
+
+        &:not(:disabled):hover {
+            border-color: $app-background-lighten;
+        }
+
+        &:disabled {
+            color: $app-background-disabled;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@import '@/styles/colors';
+
+@mixin type-primary {
+    &.--type-primary {
+        background: $success;
+        color: $app-background-secondary;
+
+        &:disabled {
+            background: rgba($success, 0.4);
+            color: $app-background-lighten;
+        }
+    }
+}

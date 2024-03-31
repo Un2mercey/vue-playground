@@ -1,0 +1,11 @@
+@import 'lg';
+@import 'md';
+@import 'sm';
+@import 'xs';
+
+@mixin button-sizes {
+    @include size-lg;
+    @include size-md;
+    @include size-sm;
+    @include size-xs;
+}

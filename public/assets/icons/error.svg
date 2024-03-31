@@ -1,0 +1,5 @@
+<svg id="icon_error" width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <circle fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" cx="256" cy="256" r="246"/>
+    <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" x1="371.47" x2="140.53" y1="140.53" y2="371.47"/>
+    <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" x1="371.47" x2="140.53" y1="371.47" y2="140.53"/>
+</svg>

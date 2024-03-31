@@ -1,0 +1,15 @@
+@import './map';
+
+.d-flex {
+    display: flex;
+}
+
+@include flex-direction;
+@include flex-wrap;
+@include flex-grow;
+@include flex-align-content;
+@include flex-justify-content;
+@include flex-align-items;
+@include flex-align-self;
+@include flex-gap;
+@include flex-block;

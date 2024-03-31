@@ -1,0 +1,13 @@
+@mixin shape-default {
+    &.--shape-default {
+        &.--size-lg,
+        &.--size-md,
+        &.--size-sm {
+            border-radius: 0.5rem;
+        }
+
+        &.--size-xs {
+            border-radius: 0.375rem;
+        }
+    }
+}
