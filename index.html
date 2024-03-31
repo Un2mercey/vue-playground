@@ -20,10 +20,11 @@
             src="/src/main.ts"
         ></script>
         <script>
-            (function(){
-                var redirect = sessionStorage.redirect;
+            (function () {
+                const redirect = sessionStorage.redirect;
+                console.log('redirecting to', redirect);
                 delete sessionStorage.redirect;
-                if (redirect && redirect != location.href) {
+                if (redirect && redirect !== location.href) {
                     history.replaceState(null, null, redirect);
                 }
             })();
