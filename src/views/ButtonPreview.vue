@@ -19,7 +19,7 @@
                             <grid-row
                                 align="stretch"
                                 justify="space-around"
-                                class="flex-nowrap"
+                                class="gap-4 flex-nowrap"
                             >
                                 <grid-col class="d-flex gap-4 flex-grow-0">
                                     <AppButton
