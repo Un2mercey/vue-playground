@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import { StoreIds } from '@/@enums';
 
-const BASE_ICON_PATH = `${import.meta.env.VITE_BASE_URL}/assets/icons/`;
+const BASE_ICON_PATH = `${import.meta.env.VITE_BASE_URL}assets/icons/`;
 
 export const useSVGStore = defineStore(StoreIds.SVG, () => {
     const svgList = reactive(new Map<string, string>());
