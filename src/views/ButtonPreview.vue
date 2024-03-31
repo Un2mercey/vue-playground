@@ -7,9 +7,7 @@
                     :key="type"
                 >
                     <template
-                        v-for="size in Object.values(Sizes)
-                            .filter((value) => ![Sizes.XXL, Sizes.XL].includes(value))
-                            .sort()"
+                        v-for="size in sizes"
                         :key="size"
                     >
                         <template
@@ -156,7 +154,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonShapes, ButtonTypes, Sizes } from '@/@enums';
+import { ButtonShapes, ButtonTypes, Sizes, isButtonSize } from '@/@enums';
 import { useToastsStore } from '@/stores';
 import AppButton from '@/components/button/AppButton.vue';
 import SVGIcon from '@/components/icons/SVGIcon.vue';
@@ -167,6 +165,7 @@ import PageLayout from '@/components/layout/structural/PageLayout.vue';
 
 const { showSuccessToast, showErrorToast, showWarningToast, showInfoToast } = useToastsStore();
 
+const sizes = Object.values(Sizes).filter(isButtonSize).sort();
 const clickMap = new Map<ButtonTypes, () => void>()
     .set(ButtonTypes.PRIMARY, success)
     .set(ButtonTypes.CLEAR, info)

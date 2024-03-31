@@ -15,3 +15,6 @@ export enum ButtonShapes {
 }
 
 export type ButtonSizes = Exclude<Sizes, Sizes.XXL | Sizes.XL>;
+export const isButtonSize = (token: unknown): token is ButtonSizes => {
+    return ![Sizes.XXL, Sizes.XL].includes(token as Sizes);
+};
