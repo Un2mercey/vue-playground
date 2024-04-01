@@ -12,7 +12,8 @@
         "format": "prettier --write ."
     },
     "dependencies": {
-        "@vueuse/core": "^8.2.6",
+        "@vueuse/core": "^10.9.0",
+        "@vueuse/components": "^10.9.0",
         "date-fns": "^2.30.0",
         "pinia": "^2.1.7",
         "vue": "^3.4.21",

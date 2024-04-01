@@ -25,8 +25,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import SVGContainer from '@/components/icons/SVGContainer.vue';
-import GridCol from '@/components/layout/grid/GridCol.vue';
-import GridRow from '@/components/layout/grid/GridRow.vue';
+import { GridCol, GridRow } from '@/components/layout/grid';
 import ToastList from '@/components/toast/ToastList.vue';
 
 const route = useRoute();

@@ -37,9 +37,8 @@ import { computed, onMounted, ref } from 'vue';
 import { Sizes, ToastTypes } from '@/@enums';
 import { Toast } from '@/@interfaces';
 import { useToastsStore } from '@/stores';
-import SVGIcon from '@/components/icons/SVGIcon.vue';
-import GridCol from '@/components/layout/grid/GridCol.vue';
-import GridRow from '@/components/layout/grid/GridRow.vue';
+import SVGIcon from '@/components/icons';
+import { GridCol, GridRow } from '@/components/layout/grid';
 
 const { toast } = defineProps<{
     toast: Toast;
