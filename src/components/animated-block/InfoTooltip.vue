@@ -129,7 +129,7 @@ const { data } = defineProps<{
 
 const infoRef = ref<HTMLDivElement>();
 const offsetTop = ref(24);
-const offsetLeft = computed(() => infoRef.value?.getBoundingClientRect().width);
+const offsetLeft = computed(() => infoRef.value?.getBoundingClientRect().width || 0);
 const leftPos = computed(() => (data?.posX ? `calc(${data.posX}px - ${offsetLeft.value}px / 2)` : 0));
 const topPos = computed(() => (data?.posY ? `calc(${data.posY}px + ${offsetTop.value}px)` : 0));
 </script>
