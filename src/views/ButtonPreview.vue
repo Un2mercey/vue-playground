@@ -64,11 +64,9 @@
 <script setup lang="ts">
 import { ButtonShapes, ButtonTypes, Sizes, isButtonSize } from '@/@enums';
 import { useToastsStore } from '@/stores';
-import AppButton from '@/components/button/AppButton.vue';
-import SVGIcon from '@/components/icons/SVGIcon.vue';
-import GridCol from '@/components/layout/grid/GridCol.vue';
-import GridRow from '@/components/layout/grid/GridRow.vue';
-import GridSpacer from '@/components/layout/grid/GridSpacer.vue';
+import AppButton from '@/components/button';
+import SVGIcon from '@/components/icons';
+import { GridCol, GridRow, GridSpacer } from '@/components/layout/grid';
 import PageLayout from '@/components/layout/structural/PageLayout.vue';
 
 const { showSuccessToast, showErrorToast, showWarningToast, showInfoToast } = useToastsStore();

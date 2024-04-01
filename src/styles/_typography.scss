@@ -7,6 +7,18 @@
     -webkit-text-fill-color: transparent;
 }
 
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-success {
+    color: $success;
+}
+
+.text-info {
+    color: $info;
+}
+
 h1 {
     font-size: 64px;
     line-height: 1.25;

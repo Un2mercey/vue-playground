@@ -1,5 +1,6 @@
 <template>
     <svg
+        ref="svgRef"
         viewBox="0 0 100 100"
         width="100"
         height="100"
@@ -36,11 +37,25 @@
             :rx="rx"
         />
     </svg>
+    <transition
+        name="fade"
+        mode="out-in"
+    >
+        <InfoTooltip
+            v-if="isInfoShown"
+            v-on-click-outside="hideInfo"
+            :data="tooltipData"
+            :x="svgRef?.getBoundingClientRect().x"
+        />
+    </transition>
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, reactive, ref, toRaw } from 'vue';
+import { vOnClickOutside } from '@vueuse/components';
+import { computed, nextTick, onBeforeUnmount, reactive, ref, toRaw, watch } from 'vue';
+import { TooltipData } from '@/@interfaces';
 import { useToastsStore } from '@/stores';
+import InfoTooltip from '@/components/animated-block/InfoTooltip.vue';
 
 enum SVGIds {
     GRADIENT = 'gradient',
@@ -59,7 +74,10 @@ enum AnimationPlayState {
 
 const { showSuccessToast, showWarningToast } = useToastsStore();
 
+const svgRef = ref<SVGElement>();
 const isHovered = ref(false);
+const isInfoShown = ref(false);
+const tooltipData = ref<TooltipData>();
 const fill = ref(`url(#${SVGIds.GRADIENT})`);
 
 // Rect rx ticking
@@ -134,9 +152,9 @@ const slideAnimationState = ref(AnimationPlayState.RUNNING);
 const isAnimationsActive = ref(true);
 function toggleAnimations() {
     if (isAnimationsActive.value) {
-        clearIntervals();
-        viewLog();
+        nextTick(showInfo);
         slideAnimationState.value = AnimationPlayState.PAUSED;
+        clearIntervals();
         showWarningToast({ text: 'Animations has been stopped' });
     } else {
         rerunIntervals();
@@ -154,23 +172,44 @@ function rerunIntervals() {
     colorsInterval = setInterval(updateColors, 50);
 }
 
-function viewLog() {
-    console.info(
-        'rx:',
-        rx.value,
-        '\nopacities:',
-        toRaw(opacities),
-        '\ngradient coords:',
-        toRaw(coords),
-        '\ncolors:',
-        toRaw(colors),
-    );
+function showInfo() {
+    isInfoShown.value = true;
+}
+
+function hideInfo() {
+    isInfoShown.value = false;
+}
+
+function updateTooltipData(isShown: boolean) {
+    if (!isShown) {
+        tooltipData.value = undefined;
+        return;
+    }
+
+    let posX;
+    let posY;
+    const rects = svgRef.value?.getBoundingClientRect();
+    if (rects) {
+        const { left, top, height, width } = rects;
+        posX = left + width / 2;
+        posY = top + height;
+    }
+
+    tooltipData.value = {
+        posX,
+        posY,
+        rx: rx.value,
+        opacities: toRaw(opacities),
+        coords: toRaw(coords),
+        colors: toRaw(colors),
+    };
 }
 
 function clearIntervals() {
     [rxInterval, opacitiesInterval, coordsInterval, colorsInterval].forEach((interval) => clearInterval(interval));
 }
 
+watch(isInfoShown, updateTooltipData);
 onBeforeUnmount(clearIntervals);
 </script>
 

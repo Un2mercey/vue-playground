@@ -47,9 +47,8 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { RouteNames, Sizes } from '@/@enums';
-import SVGIcon from '@/components/icons/SVGIcon.vue';
-import GridCol from '@/components/layout/grid/GridCol.vue';
-import GridRow from '@/components/layout/grid/GridRow.vue';
+import SVGIcon from '@/components/icons';
+import { GridCol, GridRow } from '@/components/layout/grid';
 
 enum Emits {
     UPDATE_MODEL_VALUE = 'update:modelValue',

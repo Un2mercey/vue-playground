@@ -35,9 +35,8 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue';
 import { Sizes } from '@/@enums';
-import { ButtonShapes, ButtonSizes, ButtonTypes } from '@/@enums/button.ts';
-import GridCol from '@/components/layout/grid/GridCol.vue';
-import GridRow from '@/components/layout/grid/GridRow.vue';
+import { ButtonShapes, ButtonSizes, ButtonTypes } from '@/@enums';
+import { GridCol, GridRow } from '@/components/layout/grid';
 
 const {
     type = ButtonTypes.PRIMARY,
