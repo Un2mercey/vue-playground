@@ -137,11 +137,11 @@ function toggleAnimations() {
         clearIntervals();
         viewLog();
         slideAnimationState.value = AnimationPlayState.PAUSED;
-        showWarningToast({ text: 'Intervals has been stopped' });
+        showWarningToast({ text: 'Animations has been stopped' });
     } else {
         rerunIntervals();
         slideAnimationState.value = AnimationPlayState.RUNNING;
-        showSuccessToast({ text: 'Intervals has been started' });
+        showSuccessToast({ text: 'Animations has been started' });
     }
 
     isAnimationsActive.value = !isAnimationsActive.value;
