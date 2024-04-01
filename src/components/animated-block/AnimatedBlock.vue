@@ -11,7 +11,7 @@
     >
         <defs>
             <linearGradient
-                :id="SVGIds.GRADIENT"
+                :id="`${SVGIds.GRADIENT}-${id}`"
                 :x1="`${isHovered ? 0 : coords[0]}%`"
                 :y1="`${isHovered ? 0 : coords[1]}%`"
                 :x2="`${isHovered ? 50 : coords[2]}%`"
@@ -72,16 +72,22 @@ enum AnimationPlayState {
     RUNNING = 'running',
 }
 
+const { id } = defineProps<{
+    id: string | number;
+}>();
+
 const { showSuccessToast, showWarningToast } = useToastsStore();
 
 const svgRef = ref<SVGElement>();
 const isHovered = ref(false);
 const isInfoShown = ref(false);
 const tooltipData = ref<TooltipData>();
-const fill = ref(`url(#${SVGIds.GRADIENT})`);
+const fill = ref(`url(#${SVGIds.GRADIENT}-${id})`);
+const animationSpeed = ref(getRandomAnimationSpeed());
+const animationDelay = ref(getRandomDelay());
 
 // Rect rx ticking
-const rx = ref(25);
+const rx = ref(getRandomShape());
 const borderRadius = computed(() => `${rx.value}px`);
 const rxStep = ref(0.05);
 const rxIncrement = ref(true);
@@ -131,7 +137,7 @@ function updateGradientCoords() {
 let coordsInterval = setInterval(updateGradientCoords);
 
 // Rect gradient colors ticking
-const colors = reactive<[string, string]>([Colors.SUCCESS, Colors.INFO]);
+const colors = reactive<[string, string]>([getRandomColor(), getRandomColor()]);
 const colorsIncrements = reactive<[boolean, boolean]>([true, true]);
 const colorStep = ref(255);
 function updateColors() {
@@ -205,6 +211,22 @@ function updateTooltipData(isShown: boolean) {
     };
 }
 
+function getRandomColor() {
+    return '#' + ['r', 'g', 'b'].map(() => Math.floor(Math.random() * 255).toString(16)).join('');
+}
+
+function getRandomDelay() {
+    return Math.floor(Math.random() * 2000) + 'ms';
+}
+
+function getRandomShape() {
+    return Math.floor(Math.random() * 50);
+}
+
+function getRandomAnimationSpeed() {
+    return Math.floor(Math.random() * 4000) + 1000 + 'ms';
+}
+
 function clearIntervals() {
     [rxInterval, opacitiesInterval, coordsInterval, colorsInterval].forEach((interval) => clearInterval(interval));
 }
@@ -228,7 +250,7 @@ onBeforeUnmount(clearIntervals);
 
 svg {
     @extend .cursor-pointer;
-    animation: 2s linear 0s infinite alternate slide;
+    animation: v-bind(animationSpeed) linear v-bind(animationDelay) infinite alternate slide;
     animation-play-state: v-bind(slideAnimationState);
     border-radius: v-bind(borderRadius);
     outline: 4px solid transparent;
