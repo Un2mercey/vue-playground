@@ -103,7 +103,7 @@ function updateRx() {
 let rxInterval = setInterval(updateRx);
 
 // Rect gradient opacity ticking
-const opacities = reactive<[number, number]>([0.25, 0.75]);
+const opacities = reactive<[number, number]>([getRandomOpacity(), getRandomOpacity()]);
 const opacitiesIncrements = reactive<[boolean, boolean]>([true, true]);
 const opacityStep = ref(0.001);
 function updateOpacities() {
@@ -221,6 +221,10 @@ function getRandomDelay() {
 
 function getRandomShape() {
     return Math.floor(Math.random() * 50);
+}
+
+function getRandomOpacity() {
+    return parseFloat(Math.random().toFixed(2));
 }
 
 function getRandomAnimationSpeed() {
