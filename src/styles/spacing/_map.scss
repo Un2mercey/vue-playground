@@ -14,80 +14,43 @@ $spacings: (
     '12': 3rem,
 );
 
-$directions: ('t', 'r', 'b', 'l', 'x', 'y', 'a');
+$directions: (
+    't': top,
+    'r': right,
+    'b': bottom,
+    'l': left,
+    'x': (
+        'l': left,
+        'r': right,
+    ),
+    'y': (
+        't': top,
+        'b': bottom,
+    ),
+    'a': &,
+);
 
-$types: ('p', 'm');
+$offsets: (
+    'm': margin,
+    'p': padding,
+);
+
+@mixin setDirection($offset, $direction, $space) {
+    $delimiter: if($direction, '-', '');
+    #{$offset}#{$delimiter}#{$direction}: $space !important;
+}
 
 @mixin spacings {
-    @each $type in $types {
-        @each $direction in $directions {
-            @each $key, $value in $spacings {
-                .#{$type}#{$direction}-#{$key} {
-                    // paddings
-                    @if $type == 'p' {
-                        // pt-[0-12]
-                        @if $direction == 't' {
-                            padding-top: $value !important;
+    @each $offsetName, $offset in $offsets {
+        @each $spaceName, $space in $spacings {
+            @each $dirName, $direction in $directions {
+                .#{$offsetName}#{$dirName}-#{$spaceName} {
+                    @if type-of($direction) == 'map' {
+                        @each $subDirName, $subDir in $direction {
+                            @include setDirection($offset, $subDir, $space);
                         }
-                        // pr-[0-12]
-                        @else if $direction == 'r' {
-                            padding-right: $value !important;
-                        }
-                        // pb-[0-12]
-                        @else if $direction == 'b' {
-                            padding-bottom: $value !important;
-                        }
-                        // pl-[0-12]
-                        @else if $direction == 'l' {
-                            padding-left: $value !important;
-                        }
-                        // px-[0-12]
-                        @else if $direction == 'x' {
-                            padding-left: $value !important;
-                            padding-right: $value !important;
-                        }
-                        // py-[0-12]
-                        @else if $direction == 'y' {
-                            padding-top: $value !important;
-                            padding-bottom: $value !important;
-                        }
-                        // pa-[0-12]
-                        @else if $direction == 'a' {
-                            padding: $value !important;
-                        }
-                    }
-                    // margins
-                    @else {
-                        // mt-[0-12]
-                        @if $direction == 't' {
-                            margin-top: $value !important;
-                        }
-                        // mr-[0-12]
-                        @else if $direction == 'r' {
-                            margin-right: $value !important;
-                        }
-                        // mb-[0-12]
-                        @else if $direction == 'b' {
-                            margin-bottom: $value !important;
-                        }
-                        // ml-[0-12]
-                        @else if $direction == 'l' {
-                            margin-left: $value !important;
-                        }
-                        // mx-[0-12]
-                        @else if $direction == 'x' {
-                            margin-left: $value !important;
-                            margin-right: $value !important;
-                        }
-                        // my-[0-12]
-                        @else if $direction == 'y' {
-                            margin-top: $value !important;
-                            margin-bottom: $value !important;
-                        }
-                        // ma-[0-12]
-                        @else if $direction == 'a' {
-                            margin: $value !important;
-                        }
+                    } @else {
+                        @include setDirection($offset, $direction, $space);
                     }
                 }
             }
