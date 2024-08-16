@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/vue3';
-import '../src/styles/index.scss';
 import { appBackgroundColor } from '../src/styles/exported';
+import '../src/styles/index.scss';
 
 const preview: Preview = {
     parameters: {
@@ -10,8 +10,8 @@ const preview: Preview = {
                 {
                     name: 'dark',
                     value: appBackgroundColor,
-                }
-            ]
+                },
+            ],
         },
         controls: {
             matchers: {

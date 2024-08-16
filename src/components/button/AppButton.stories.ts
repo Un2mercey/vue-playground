@@ -1,7 +1,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/vue3';
-import AppButton from './index';
-import { ButtonShapes, ButtonTypes, isButtonSize, Sizes } from '@/@enums';
+import { ButtonShapes, ButtonTypes, Sizes, isButtonSize } from '@/@enums';
 import SVGIcon from '@/components/icons';
+import AppButton from './index';
 
 const icons: Readonly<string[]> = [
     'button',
@@ -13,7 +13,7 @@ const icons: Readonly<string[]> = [
     'info',
     'refresh',
     'success',
-    'warning'
+    'warning',
 ];
 
 const meta: Meta<typeof AppButton> = {
@@ -31,14 +31,14 @@ const meta: Meta<typeof AppButton> = {
                     [ButtonTypes.ACCENT]: 'Accent',
                     [ButtonTypes.GHOST]: 'Ghost',
                     [ButtonTypes.CLEAR]: 'Clear',
-                }
+                },
             },
             table: {
                 defaultValue: {
                     summary: 'ButtonTypes.PRIMARY',
                     detail: ButtonTypes.PRIMARY,
                 },
-            }
+            },
         },
         shape: {
             options: Object.values(ButtonShapes),
@@ -48,14 +48,14 @@ const meta: Meta<typeof AppButton> = {
                     [ButtonShapes.DEFAULT]: 'Default',
                     [ButtonShapes.BRICK]: 'Brick',
                     [ButtonShapes.ROUND]: 'Round',
-                }
+                },
             },
             table: {
                 defaultValue: {
                     summary: 'ButtonShapes.DEFAULT',
                     detail: ButtonShapes.DEFAULT,
                 },
-            }
+            },
         },
         size: {
             description: '`Sizes.XXL`, `Sizes.XL` is not supported',
@@ -67,31 +67,32 @@ const meta: Meta<typeof AppButton> = {
                     [Sizes.SM]: 'Small',
                     [Sizes.MD]: 'Medium',
                     [Sizes.LG]: 'Large',
-                }
+                },
             },
             table: {
                 defaultValue: {
                     summary: 'Sizes.MD',
                     detail: Sizes.MD,
                 },
-            }
+            },
         },
         disabled: {
             control: { type: 'boolean' },
             table: {
                 defaultValue: {
                     summary: 'false',
-                }
-            }
+                },
+            },
         },
         default: {
-            description: 'If this slot is `empty` but one of `#prepend` or `#append` slots added would be added the `--icon` class',
-            control: { type: 'text', },
+            description:
+                'If this slot is `empty` but one of `#prepend` or `#append` slots added would be added the `--icon` class',
+            control: { type: 'text' },
         },
         prepend: {
             options: [...icons],
-            control: { type: 'select'},
-        }
+            control: { type: 'select' },
+        },
     },
 };
 
@@ -101,12 +102,15 @@ type Story = StoryObj<typeof AppButton>;
 
 const Template: StoryFn = (args) => ({
     components: { AppButton, SVGIcon },
-    setup() { return { args }; },
-    template: '' +
+    setup() {
+        return { args };
+    },
+    template:
+        '' +
         '<AppButton v-bind="args">' +
-            '<template #prepend><SVGIcon :name="args.prepend" /></template>' +
-            '<template #default><span>{{ args.defautt }}</span>></template>' +
-            '<template #append><SVGIcon :name="args.append" /></template>' +
+        '<template #prepend><SVGIcon :name="args.prepend" /></template>' +
+        '<template #default><span>{{ args.defautt }}</span>></template>' +
+        '<template #append><SVGIcon :name="args.append" /></template>' +
         '</AppButton>',
 });
 
@@ -117,4 +121,4 @@ Example.args = {
     size: Sizes.MD,
     disabled: false,
     default: 'Button',
-}
+};

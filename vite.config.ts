@@ -1,8 +1,8 @@
 import vue from '@vitejs/plugin-vue';
-import { URL, fileURLToPath } from 'node:url';
-import { ConfigEnv, defineConfig, loadEnv } from 'vite';
-import { PreRenderedChunk, PreRenderedAsset } from 'rollup';
 import kebabCase from 'lodash-es/kebabCase';
+import { URL, fileURLToPath } from 'node:url';
+import { PreRenderedAsset, PreRenderedChunk } from 'rollup';
+import { ConfigEnv, defineConfig, loadEnv } from 'vite';
 
 // https://vitejs.dev/config/
 export default ({ mode }: ConfigEnv) => {
@@ -35,7 +35,7 @@ export default ({ mode }: ConfigEnv) => {
                     assetFileNames,
                     entryFileNames: 'js/[name].js',
                 },
-            }
+            },
         },
         resolve: {
             alias: {
