@@ -3,6 +3,7 @@ import pluginJs from '@eslint/js';
 import configPrettier from 'eslint-config-prettier';
 import pluginPrettier from 'eslint-plugin-prettier';
 import pluginVue from 'eslint-plugin-vue';
+import pluginStorybook from 'eslint-plugin-storybook';
 import globals from 'globals';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,6 +29,7 @@ export default [
         },
         plugins: {
             pluginPrettier,
+            pluginStorybook,
         },
         rules: {
             ...configPrettier.rules,
