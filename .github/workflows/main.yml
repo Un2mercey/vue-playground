@@ -40,16 +40,7 @@ jobs:
                 node-version: 20.16.0
                 cache: pnpm
             - name: Install dependencies
-              run: |
-                  if [ -e pnpm-lock.yaml ]; then
-                  pnpm i --frozen-lockfile
-                  elif [ -e yarn.lock ]; then
-                  yarn install --frozen-lockfile
-                  elif [ -e package-lock.json ]; then
-                  npm ci
-                  else
-                  npm i
-                  fi
+              run: pnpm i --frozen-lockfile
             - name: Build
               run: pnpm build
               env:
