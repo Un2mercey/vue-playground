@@ -33,12 +33,12 @@ jobs:
             - name: Set up PNPM
               uses: pnpm/action-setup@v3
               with:
-                version: 9.7.1
+                  version: 9.7.1
             - name: Set up Node
               uses: actions/setup-node@v4
               with:
-                node-version: 20.16.0
-                cache: pnpm
+                  node-version: 20.16.0
+                  cache: pnpm
             - name: Install dependencies
               run: pnpm i --frozen-lockfile
             - name: Build for production

@@ -1,7 +1,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/vue3';
 import { ButtonShapes, ButtonTypes, Sizes, isButtonSize } from '@/@enums';
 import SVGIcon from '@/components/icons';
-import AppButton from './index';
+import AppButton from './';
 
 const icons: Readonly<string[]> = [
     'button',
