@@ -1,11 +1,18 @@
-# Setup
+# Vue playground
+### The project uses [PNPM](https://pnpm.io/) as a default package manager
 
-## Create `.env` like `.env.example`
-## Run `yarn install` to install libs
+## Setup
+### 1. Create `.env` like `.env.example`
+### 2. Dependencies installation
 ```shell
-yarn install
+pnpm i --frozen-lockfile
 ```
-## Run `yarn dev` to run dev mode
+### 3. Starting the development server
 ```shell
-yarn dev
+pnpm start
+```
+
+#### 4. Starting the storybook server
+```shell
+pnpm storybook
 ```
