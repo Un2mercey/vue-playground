@@ -1,0 +1,22 @@
+@import '../colors/variables';
+
+$colors: (
+    'appBackground': $app-background,
+    'appBackgroundSecondary': $app-background-secondary,
+    'appBackgroundLight': $app-background-light,
+    'appBackgroundLighten': $app-background-lighten,
+    'appBackgroundDisabled': $app-background-disabled,
+    'app': $app-color,
+    'error': $error,
+    'errorHover': $error-hover,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'backgroundPrimary': $background-primary,
+);
+
+:export {
+    @each $name, $value in $colors {
+        #{unquote($name + 'Color')}: $value;
+    }
+}

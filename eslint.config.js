@@ -2,6 +2,7 @@ import { includeIgnoreFile } from '@eslint/compat';
 import pluginJs from '@eslint/js';
 import configPrettier from 'eslint-config-prettier';
 import pluginPrettier from 'eslint-plugin-prettier';
+import pluginStorybook from 'eslint-plugin-storybook';
 import pluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
 import { dirname, resolve } from 'node:path';
@@ -28,6 +29,7 @@ export default [
         },
         plugins: {
             pluginPrettier,
+            pluginStorybook,
         },
         rules: {
             ...configPrettier.rules,

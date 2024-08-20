@@ -1,0 +1,12 @@
+export declare const appBackgroundColor: string;
+export declare const appBackgroundDisabledColor: string;
+export declare const appBackgroundLightColor: string;
+export declare const appBackgroundLightenColor: string;
+export declare const appBackgroundSecondaryColor: string;
+export declare const appColor: string;
+export declare const backgroundPrimaryColor: string;
+export declare const errorColor: string;
+export declare const errorHoverColor: string;
+export declare const infoColor: string;
+export declare const successColor: string;
+export declare const warningColor: string;
