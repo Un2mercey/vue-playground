@@ -1,5 +1,5 @@
 # Vue playground
-### The project uses [PNPM](https://pnpm.io/) as a main package manager
+### The project uses [PNPM](https://pnpm.io/) as a default package manager
 
 ## Setup
 ### 1. Create `.env` like `.env.example`
