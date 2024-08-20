@@ -3,7 +3,7 @@
 
 ## Setup
 ### 1. Create `.env` like `.env.example`
-### 2. Dependencies installation
+### 2. Install dependencies
 ```shell
 pnpm i --frozen-lockfile
 ```
