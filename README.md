@@ -1,4 +1,9 @@
 # Vue playground
+
+## Demo
+
+<https://un2mercey.github.io/vue-playground/>
+
 ### The project uses [PNPM](https://pnpm.io/) as a default package manager
 
 ## Setup
